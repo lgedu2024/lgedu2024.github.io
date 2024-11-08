@@ -73,25 +73,37 @@
             font-size: 16px;
         }
         /* Style for the modal background */
+       /* Full-page modal styling */
+/* Full-page modal styling with scrollable content */
         .modal {
             display: none; /* Hidden by default */
-            position: fixed;
-            z-index: 1;
-            left: 0;
+            position: fixed; /* Stay in place */
             top: 0;
+            left: 0;
             width: 100%;
             height: 100%;
-            background-color: rgba(0,0,0,0.4); /* Semi-transparent background */
+            background-color: rgba(0, 0, 0, 0.8); /* Semi-transparent background */
+            overflow-y: auto; /* Allow vertical scrolling for modal content */
+            z-index: 9999; /* Sit on top */
         }
 
-        /* Modal content box */
         .modal-content {
             background-color: #fff;
-            margin: 15% auto;
+            margin: 50px auto; /* Center and add margin from top */
             padding: 20px;
-            border: 1px solid #ccc;
-            width: 50%;
-            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+            width: 90%; /* Full-page width */
+            max-width: 800px; /* Limit max-width for readability */
+            border-radius: 8px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+        }
+
+        .close {
+            position: absolute;
+            top: 20px;
+            right: 30px;
+            font-size: 30px;
+            color: #fff;
+            cursor: pointer;
         }
 
         /* Style for the session links inside the modal */
@@ -101,14 +113,6 @@
             background-color: #f9f9f9;
         }
 
-        /* Style for the close button */
-        .close {
-            color: #aaa;
-            float: right;
-            font-size: 28px;
-            font-weight: bold;
-            cursor: pointer;
-        }
 
         .close:hover,
         .close:focus {
@@ -125,147 +129,93 @@
             margin-bottom: 20px;
             background-color: #fff;
         }
+                /* Styling for the image container */
+        .course-agenda-container {
+            width: 100%; /* Full width of the parent container */
+            height: auto; /* Height adjusts based on the content */
+            overflow: hidden; /* Hide overflow in case of image aspect ratio issues */
+        }
+
+        /* Image styling to fit the container */
+        .course-agenda-image {
+            width: 100%; /* Make the image fill the width of the container */
+            height: auto; /* Maintain aspect ratio */
+            object-fit: contain; /* Ensure the entire image is visible within the container */
+        }
+
+        /* Styling for Join Button */
+        .join-button-container {
+            display: flex;
+            justify-content: center;
+            margin-top: 20px;
+            margin-bottom: 20px;
+        }
+
+        .session-link {
+            display: inline-block;
+            padding: 15px 30px;
+            font-size: 20px; /* Larger font for readability */
+            background-color: #3000ff; /* Green background for visibility */
+            color: white;
+            text-align: center;
+            text-decoration: none;
+            border-radius: 40px;
+            font-weight: bold;
+            transition: background-color 0.3s; /* Smooth transition on hover */
+        }
+
+        .session-link:hover {
+            background-color: #45a049; /* Darker green on hover */
+        }
+
     </style>
 </head>
 <body>
 
-    <div class="container" id="mingxiaozhang">
-        <h1 class="title">名校长工作室</h1>
-        
-        <div class="card" data-modal="modal1">
-            <div class="card-title">BA02：教师成长</div>
-            <div class="card-subtitle">主持人: 阳湘玲</div>
-        </div>
-        <div class="card" data-modal="modal2">
-            <div class="card-title">BA03：幼小初高思政课一体化</div>
-            <div class="card-subtitle">主持人: 魏育栋</div>
-        </div>
-        <div class="card" data-modal="modal3">
-            <div class="card-title">BA04：学校课程体系的构建及我们的实践</div>
-            <div class="card-subtitle">主持人: 邓春苗</div>
-        </div>
-        <div class="card" data-modal="modal4">
-            <div class="card-title">BA05：少先队发展与学校发展</div>
-            <div class="card-subtitle">主持人: 黄敬群</div>
-        </div>
-        <div class="card" data-modal="modal5">
-            <div class="card-title">BA06：大单元问题化教学</div>
-            <div class="card-subtitle">主持人: 朱群霞</div>
-        </div>
-        <div class="card" data-modal="modal6">
-            <div class="card-title">BA07：文化赋能，助力成长</div>
-            <div class="card-subtitle">主持人: 王书斌</div>
-        </div>
-        <div class="card" data-modal="modal7">
-            <div class="card-title">BA08：党组织领导下的现代学校制度建设</div>
-            <div class="card-subtitle">主持人: 张洪</div>
-        </div>
-    </div>
+<div class="container" id="mingxiaozhang">
+    <h1 class="title">名校长工作室</h1>
     
-    <!-- The Modals -->
-    <div class="modal" id="modal1">
-        <div class="modal-content">
-            <div class="card-title">BA02：教师成长</div>
-            <div class="card-subtitle">主持人: 阳湘玲</div>
-            <span class="close" onclick="closeModal('modal1')">&times;</span>
-            <div class="session-links">
-                <a href="https://www.eeo.cn/webcast.php?courseKey=d0fce835daee69bb" class="session-link">上午场</a>
-                <a href="https://www.eeo.cn/webcast.php?courseKey=d0fce835daee69bb" class="session-link">中午场</a>
-                <a href="https://www.eeo.cn/webcast.php?courseKey=d0fce835daee69bb" class="session-link">下午场</a>
-            </div>
-        </div>
+    <div class="card" data-modal="modal1">
+        <div class="card-title">BA02：教师成长</div>
+        <div class="card-subtitle">工作室主持人: 阳湘玲</div>
     </div>
-    
-    <div class="modal" id="modal2">
-        <div class="modal-content">
-            <div class="card-title">BA03：幼小初高思政课一体化</div>
-            <div class="card-subtitle">主持人: 魏育栋</div>
-            <span class="close" onclick="closeModal('modal2')">&times;</span>
-            <div class="session-links">
-                <a href="https://www.eeo.cn/webcast.php?courseKey=84fa895f714ec33c" class="session-link">上午场</a>
-                <a href="https://www.eeo.cn/webcast.php?courseKey=84fa895f714ec33c" class="session-link">中午场</a>
-                <a href="https://www.eeo.cn/webcast.php?courseKey=84fa895f714ec33c" class="session-link">下午场</a>
-            </div>
-        </div>
+    <div class="card" data-modal="modal2">
+        <div class="card-title">BA03：幼小初高思政课一体化</div>
+        <div class="card-subtitle">工作室主持人: 魏育栋</div>
     </div>
-    
-    <div class="modal" id="modal3">
-        <div class="modal-content">
-            <div class="card-title">BA04：学校课程体系的构建及我们的实践</div>
-            <div class="card-subtitle">主持人: 邓春苗</div>
-            <span class="close" onclick="closeModal('modal3')">&times;</span>
-            <div class="session-links">
-                <a href="https://www.eeo.cn/webcast.php?courseKey=36764c67916bc68a" class="session-link">上午场</a>
-                <a href="https://www.eeo.cn/webcast.php?courseKey=36764c67916bc68a" class="session-link">中午场</a>
-                <a href="https://www.eeo.cn/webcast.php?courseKey=36764c67916bc68a" class="session-link">下午场</a>
-            </div>
-        </div>
+    <div class="card" data-modal="modal3">
+        <div class="card-title">BA04：学校课程体系的构建及我们的实践</div>
+        <div class="card-subtitle">工作室主持人: 邓春苗</div>
     </div>
-    
-    <div class="modal" id="modal4">
-        <div class="modal-content">
-            <div class="card-title">BA05：少先队发展与学校发展</div>
-            <div class="card-subtitle">主持人: 黄敬群</div>
-            <span class="close" onclick="closeModal('modal4')">&times;</span>
-            <div class="session-links">
-                <a href="https://www.eeo.cn/webcast.php?courseKey=ee96942a75fe26cd" class="session-link">上午场</a>
-                <a href="https://www.eeo.cn/webcast.php?courseKey=ee96942a75fe26cd" class="session-link">中午场</a>
-                <a href="https://www.eeo.cn/webcast.php?courseKey=ee96942a75fe26cd" class="session-link">下午场</a>
-            </div>
-        </div>
+    <div class="card" data-modal="modal4">
+        <div class="card-title">BA05：少先队发展与学校发展</div>
+        <div class="card-subtitle">工作室主持人: 黄敬群</div>
     </div>
-    
-    <div class="modal" id="modal5">
-        <div class="modal-content">
-            <div class="card-title">BA06：大单元问题化教学</div>
-            <div class="card-subtitle">主持人: 朱群霞</div>
-            <span class="close" onclick="closeModal('modal5')">&times;</span>
-            <div class="session-links">
-                <a href="https://www.eeo.cn/webcast.php?courseKey=b436e624beec68fd" class="session-link">上午场</a>
-                <a href="https://www.eeo.cn/webcast.php?courseKey=b436e624beec68fd" class="session-link">中午场</a>
-                <a href="https://www.eeo.cn/webcast.php?courseKey=b436e624beec68fd" class="session-link">下午场</a>
-            </div>
-        </div>
+    <div class="card" data-modal="modal5">
+        <div class="card-title">BA06：大单元问题化教学</div>
+        <div class="card-subtitle">工作室主持人: 朱群霞</div>
     </div>
-    
-    <div class="modal" id="modal6">
-        <div class="modal-content">
-            <div class="card-title">BA07：文化赋能，助力成长</div>
-            <div class="card-subtitle">主持人: 王书斌</div>
-            <span class="close" onclick="closeModal('modal6')">&times;</span>
-            <div class="session-links">
-                <a href="https://www.eeo.cn/webcast.php?courseKey=7e34886ff4b3ff5e" class="session-link">上午场</a>
-                <a href="https://www.eeo.cn/webcast.php?courseKey=7e34886ff4b3ff5e" class="session-link">中午场</a>
-                <a href="https://www.eeo.cn/webcast.php?courseKey=7e34886ff4b3ff5e" class="session-link">下午场</a>
-            </div>
-        </div>
+    <div class="card" data-modal="modal6">
+        <div class="card-title">BA07：文化赋能，助力成长</div>
+        <div class="card-subtitle">工作室主持人: 王书斌</div>
     </div>
-    
-    <div class="modal" id="modal7">
-        <div class="modal-content">
-            <div class="card-title">BA08：党组织领导下的现代学校制度建设</div>
-            <div class="card-subtitle">主持人: 张洪</div>
-            <span class="close" onclick="closeModal('modal7')">&times;</span>
-            <div class="session-links">
-                <a href="https://www.eeo.cn/webcast.php?courseKey=fe68b5220aec4772" class="session-link">上午场</a>
-                <a href="https://www.eeo.cn/webcast.php?courseKey=fe68b5220aec4772" class="session-link">中午场</a>
-                <a href="https://www.eeo.cn/webcast.php?courseKey=fe68b5220aec4772" class="session-link">下午场</a>
-            </div>
-        </div>
+    <div class="card" data-modal="modal7">
+        <div class="card-title">BA08：党组织领导下的现代学校制度建设</div>
+        <div class="card-subtitle">工作室主持人: 张洪</div>
     </div>
+</div>
 
     
-
 <div class="container" id="mingyuanzhang">
     <h1 class="title">名园长工作室</h1>
 
     <div class="card" data-modal="modal8">
         <div class="card-title">BA09：儿童视角的幼儿园课程</div>
-        <div class="card-subtitle">主持人: 刘淑华</div>
+        <div class="card-subtitle">工作室主持人: 刘淑华</div>
     </div>
     <div class="card" data-modal="modal9">
         <div class="card-title">BA010：探寻儿童视角下的“活”课程</div>
-        <div class="card-subtitle">主持人: 梁晶媛</div>
+        <div class="card-subtitle">工作室主持人: 梁晶媛</div>
     </div>
 </div>
 
@@ -275,15 +225,15 @@
 
     <div class="card" data-modal="modal10">
         <div class="card-title">CA01：幼儿园园本课程建设的区域推进</div>
-        <div class="card-subtitle">主持人: 单欣欣</div>
+        <div class="card-subtitle">工作室主持人: 单欣欣</div>
     </div>
     <div class="card" data-modal="modal11">
         <div class="card-title">CA02：幼儿传统美育</div>
-        <div class="card-subtitle">主持人: 黄瑾</div>
+        <div class="card-subtitle">工作室主持人: 黄瑾</div>
     </div>
     <div class="card" data-modal="modal12">
         <div class="card-title">CA03：幼儿传统美育</div>
-        <div class="card-subtitle">主持人: 黄瑾2</div>
+        <div class="card-subtitle">工作室主持人: 黄瑾2</div>
     </div>
 </div>
 
@@ -293,15 +243,15 @@
 
     <div class="card" data-modal="modal13">
         <div class="card-title">HC01：班级管理策略与妙招</div>
-        <div class="card-subtitle">主持人: 董艳丽</div>
+        <div class="card-subtitle">工作室主持人: 董艳丽</div>
     </div>
     <div class="card" data-modal="modal14">
         <div class="card-title">HC02：班主任管理艺术</div>
-        <div class="card-subtitle">主持人: 杨林</div>
+        <div class="card-subtitle">工作室主持人: 杨林</div>
     </div>
     <div class="card" data-modal="modal15">
         <div class="card-title">HC03：课程思政</div>
-        <div class="card-subtitle">主持人: 孙渊</div>
+        <div class="card-subtitle">工作室主持人: 孙渊</div>
     </div>
 </div>
 
@@ -310,17 +260,104 @@
 
     <div class="card" data-modal="modal16">
         <div class="card-title">IE01：教师培训</div>
-        <div class="card-subtitle">主持人: 曾灵芝</div>
+        <div class="card-subtitle">工作室主持人: 曾灵芝</div>
     </div>
     <div class="card" data-modal="modal17">
         <div class="card-title">IE02：课程建设</div>
-        <div class="card-subtitle">主持人: 孙渊2</div>
+        <div class="card-subtitle">工作室主持人: 孙渊2</div>
     </div>
     <div class="card" data-modal="modal18">
         <div class="card-title">IE03：区域学生发展监测评价</div>
-        <div class="card-subtitle">主持人: 潘梅芳</div>
+        <div class="card-subtitle">工作室主持人: 潘梅芳</div>
     </div>
 </div>
+
+<!-- The Modals -->
+<div class="modal" id="modal1">
+    <div class="modal-content">
+        <div class="card-title">BA02：教师成长</div>
+        <div class="card-subtitle">工作室主持人: 阳湘玲</div>
+        <span class="close" onclick="closeModal('modal1')">&times;</span>
+    
+    <!-- Join Button -->
+    <div class="join-button-container">
+        <a href="https://www.eeo.cn/webcast.php?courseKey=84fa895f714ec33c" class="session-link">进入课堂</a>
+    </div>
+    
+     <!-- Course Agenda Image -->
+     <div class="course-agenda-container">
+        <img src="img\kebiao1.jpg" alt="Course Agenda" class="course-agenda-image">
+    </div>
+
+    </div>
+</div>
+
+<div class="modal" id="modal2">
+    <div class="modal-content">
+        <div class="card-title">BA03：幼小初高思政课一体化</div>
+        <div class="card-subtitle">工作室主持人: 魏育栋</div>
+        <span class="close" onclick="closeModal('modal2')">&times;</span>
+        <div class="session-links">
+            <a href="https://www.eeo.cn/webcast.php?courseKey=84fa895f714ec33c" class="session-link">进入课堂</a>
+      </div>
+    </div>
+</div>
+
+<div class="modal" id="modal3">
+    <div class="modal-content">
+        <div class="card-title">BA04：学校课程体系的构建及我们的实践</div>
+        <div class="card-subtitle">工作室主持人: 邓春苗</div>
+        <span class="close" onclick="closeModal('modal3')">&times;</span>
+        <div class="session-links">
+            <a href="https://www.eeo.cn/webcast.php?courseKey=36764c67916bc68a" class="session-link">进入课堂</a>
+        </div>
+    </div>
+</div>
+
+<div class="modal" id="modal4">
+    <div class="modal-content">
+        <div class="card-title">BA05：少先队发展与学校发展</div>
+        <div class="card-subtitle">工作室主持人: 黄敬群</div>
+        <span class="close" onclick="closeModal('modal4')">&times;</span>
+        <div class="session-links">
+            <a href="https://www.eeo.cn/webcast.php?courseKey=ee96942a75fe26cd" class="session-link">进入课堂</a>
+     </div>
+    </div>
+</div>
+
+<div class="modal" id="modal5">
+    <div class="modal-content">
+        <div class="card-title">BA06：大单元问题化教学</div>
+        <div class="card-subtitle">工作室主持人: 朱群霞</div>
+        <span class="close" onclick="closeModal('modal5')">&times;</span>
+        <div class="session-links">
+            <a href="https://www.eeo.cn/webcast.php?courseKey=b436e624beec68fd" class="session-link">进入课堂</a>
+       </div>
+    </div>
+</div>
+
+<div class="modal" id="modal6">
+    <div class="modal-content">
+        <div class="card-title">BA07：文化赋能，助力成长</div>
+        <div class="card-subtitle">工作室主持人: 王书斌</div>
+        <span class="close" onclick="closeModal('modal6')">&times;</span>
+        <div class="session-links">
+           <a href="https://www.eeo.cn/webcast.php?courseKey=7e34886ff4b3ff5e" class="session-link">进入课堂</a>
+        </div>
+    </div>
+</div>
+
+<div class="modal" id="modal7">
+    <div class="modal-content">
+        <div class="card-title">BA08：党组织领导下的现代学校制度建设</div>
+        <div class="card-subtitle">工作室主持人: 张洪</div>
+        <span class="close" onclick="closeModal('modal7')">&times;</span>
+        <div class="session-links">
+          <a href="https://www.eeo.cn/webcast.php?courseKey=fe68b5220aec4772" class="session-link">进入课堂</a>
+        </div>
+    </div>
+</div>
+
 
 
 
@@ -328,12 +365,10 @@
 <div class="modal" id="modal16">
     <div class="modal-content">
         <div class="card-title">IE01：教师培训</div>
-        <div class="card-subtitle">主持人: 曾灵芝</div>
+        <div class="card-subtitle">工作室主持人: 曾灵芝</div>
         <span class="close" onclick="closeModal('modal16')">&times;</span>
         <div class="session-links">
-            <a href="https://www.eeo.cn/webcast.php?courseKey=70d907967982d625" class="session-link">上午场</a>
-            <a href="https://www.eeo.cn/webcast.php?courseKey=70d907967982d625" class="session-link">中午场</a>
-            <a href="https://www.eeo.cn/webcast.php?courseKey=70d907967982d625" class="session-link">下午场</a>
+           <a href="https://www.eeo.cn/webcast.php?courseKey=70d907967982d625" class="session-link">进入课堂</a>
         </div>
     </div>
 </div>
@@ -341,12 +376,10 @@
 <div class="modal" id="modal17">
     <div class="modal-content">
         <div class="card-title">IE02：课程建设</div>
-        <div class="card-subtitle">主持人: 孙渊2</div>
+        <div class="card-subtitle">工作室主持人: 孙渊2</div>
         <span class="close" onclick="closeModal('modal17')">&times;</span>
         <div class="session-links">
-            <a href="https://www.eeo.cn/webcast.php?courseKey=bc11a0138c640fa8" class="session-link">上午场</a>
-            <a href="https://www.eeo.cn/webcast.php?courseKey=bc11a0138c640fa8" class="session-link">中午场</a>
-            <a href="https://www.eeo.cn/webcast.php?courseKey=bc11a0138c640fa8" class="session-link">下午场</a>
+          <a href="https://www.eeo.cn/webcast.php?courseKey=bc11a0138c640fa8" class="session-link">进入课堂</a>
         </div>
     </div>
 </div>
@@ -354,12 +387,10 @@
 <div class="modal" id="modal18">
     <div class="modal-content">
         <div class="card-title">IE03：区域学生发展监测评价</div>
-        <div class="card-subtitle">主持人: 潘梅芳</div>
+        <div class="card-subtitle">工作室主持人: 潘梅芳</div>
         <span class="close" onclick="closeModal('modal18')">&times;</span>
         <div class="session-links">
-            <a href="https://www.eeo.cn/webcast.php?courseKey=0c6d4c8f21065fa5" class="session-link">上午场</a>
-            <a href="https://www.eeo.cn/webcast.php?courseKey=0c6d4c8f21065fa5" class="session-link">中午场</a>
-            <a href="https://www.eeo.cn/webcast.php?courseKey=0c6d4c8f21065fa5" class="session-link">下午场</a>
+        <a href="https://www.eeo.cn/webcast.php?courseKey=0c6d4c8f21065fa5" class="session-link">进入课堂</a>
         </div>
     </div>
 </div>
@@ -369,12 +400,10 @@
 <div class="modal" id="modal10">
     <div class="modal-content">
         <div class="card-title">CA01：幼儿园园本课程建设的区域推进</div>
-        <div class="card-subtitle">主持人: 单欣欣</div>
+        <div class="card-subtitle">工作室主持人: 单欣欣</div>
         <span class="close" onclick="closeModal('modal10')">&times;</span>
         <div class="session-links">
-            <a href="https://www.eeo.cn/webcast.php?courseKey=a1dcf1aec3f7662a" class="session-link">上午场</a>
-            <a href="https://www.eeo.cn/webcast.php?courseKey=a1dcf1aec3f7662a" class="session-link">中午场</a>
-            <a href="https://www.eeo.cn/webcast.php?courseKey=a1dcf1aec3f7662a" class="session-link">下午场</a>
+           <a href="https://www.eeo.cn/webcast.php?courseKey=a1dcf1aec3f7662a" class="session-link">进入课堂</a>
         </div>
     </div>
 </div>
@@ -382,12 +411,10 @@
 <div class="modal" id="modal11">
     <div class="modal-content">
         <div class="card-title">CA02：幼儿传统美育</div>
-        <div class="card-subtitle">主持人: 黄瑾</div>
+        <div class="card-subtitle">工作室主持人: 黄瑾</div>
         <span class="close" onclick="closeModal('modal11')">&times;</span>
         <div class="session-links">
-            <a href="https://www.eeo.cn/webcast.php?courseKey=939f63b46a24179e" class="session-link">上午场</a>
-            <a href="https://www.eeo.cn/webcast.php?courseKey=939f63b46a24179e" class="session-link">中午场</a>
-            <a href="https://www.eeo.cn/webcast.php?courseKey=939f63b46a24179e" class="session-link">下午场</a>
+           <a href="https://www.eeo.cn/webcast.php?courseKey=939f63b46a24179e" class="session-link">进入课堂</a>
         </div>
     </div>
 </div>
@@ -395,12 +422,10 @@
 <div class="modal" id="modal12">
     <div class="modal-content">
         <div class="card-title">CA03：幼儿传统美育</div>
-        <div class="card-subtitle">主持人: 黄瑾2</div>
+        <div class="card-subtitle">工作室主持人: 黄瑾2</div>
         <span class="close" onclick="closeModal('modal12')">&times;</span>
         <div class="session-links">
-            <a href="https://www.eeo.cn/webcast.php?courseKey=5f71be2c3e6a8ffc" class="session-link">上午场</a>
-            <a href="https://www.eeo.cn/webcast.php?courseKey=5f71be2c3e6a8ffc" class="session-link">中午场</a>
-            <a href="https://www.eeo.cn/webcast.php?courseKey=5f71be2c3e6a8ffc" class="session-link">下午场</a>
+           <a href="https://www.eeo.cn/webcast.php?courseKey=5f71be2c3e6a8ffc" class="session-link">进入课堂</a>
         </div>
     </div>
 </div>
@@ -410,12 +435,10 @@
 <div class="modal" id="modal8">
     <div class="modal-content">
         <div class="card-title">BA09：儿童视角的幼儿园课程</div>
-        <div class="card-subtitle">主持人: 刘淑华</div>
+        <div class="card-subtitle">工作室主持人: 刘淑华</div>
         <span class="close" onclick="closeModal('modal8')">&times;</span>
         <div class="session-links">
-            <a href="https://www.eeo.cn/webcast.php?courseKey=b7c0d4cfe7b4aa95" class="session-link">上午场</a>
-            <a href="https://www.eeo.cn/webcast.php?courseKey=b7c0d4cfe7b4aa95" class="session-link">中午场</a>
-            <a href="https://www.eeo.cn/webcast.php?courseKey=b7c0d4cfe7b4aa95" class="session-link">下午场</a>
+         <a href="https://www.eeo.cn/webcast.php?courseKey=b7c0d4cfe7b4aa95" class="session-link">进入课堂</a>
         </div>
     </div>
 </div>
@@ -423,26 +446,22 @@
 <div class="modal" id="modal9">
     <div class="modal-content">
         <div class="card-title">BA010：探寻儿童视角下的“活”课程</div>
-        <div class="card-subtitle">主持人: 梁晶媛</div>
+        <div class="card-subtitle">工作室主持人: 梁晶媛</div>
         <span class="close" onclick="closeModal('modal9')">&times;</span>
         <div class="session-links">
-            <a href="https://www.eeo.cn/webcast.php?courseKey=734bdefaacf5512e" class="session-link">上午场</a>
-            <a href="https://www.eeo.cn/webcast.php?courseKey=734bdefaacf5512e" class="session-link">中午场</a>
-            <a href="https://www.eeo.cn/webcast.php?courseKey=734bdefaacf5512e" class="session-link">下午场</a>
+         <a href="https://www.eeo.cn/webcast.php?courseKey=734bdefaacf5512e" class="session-link">进入课堂</a>
         </div>
     </div>
-
+</div>
     
     <!-- The Modals for 高中班主任 -->
     <div class="modal" id="modal13">
         <div class="modal-content">
             <div class="card-title">HC01：班级管理策略与妙招</div>
-            <div class="card-subtitle">主持人: 董艳丽</div>
+            <div class="card-subtitle">工作室主持人: 董艳丽</div>
             <span class="close" onclick="closeModal('modal13')">&times;</span>
             <div class="session-links">
-                <a href="https://www.eeo.cn/webcast.php?courseKey=170bef13e42caa92" class="session-link">上午场</a>
-                <a href="https://www.eeo.cn/webcast.php?courseKey=170bef13e42caa92" class="session-link">中午场</a>
-                <a href="https://www.eeo.cn/webcast.php?courseKey=170bef13e42caa92" class="session-link">下午场</a>
+          <a href="https://www.eeo.cn/webcast.php?courseKey=170bef13e42caa92" class="session-link">进入课堂</a>
             </div>
         </div>
     </div>
@@ -450,12 +469,10 @@
     <div class="modal" id="modal14">
         <div class="modal-content">
             <div class="card-title">HC02：班主任管理艺术</div>
-            <div class="card-subtitle">主持人: 杨林</div>
+            <div class="card-subtitle">工作室主持人: 杨林</div>
             <span class="close" onclick="closeModal('modal14')">&times;</span>
             <div class="session-links">
-                <a href="https://www.eeo.cn/webcast.php?courseKey=c4c532b4c64b372b" class="session-link">上午场</a>
-                <a href="https://www.eeo.cn/webcast.php?courseKey=c4c532b4c64b372b" class="session-link">中午场</a>
-                <a href="https://www.eeo.cn/webcast.php?courseKey=c4c532b4c64b372b" class="session-link">下午场</a>
+             <a href="https://www.eeo.cn/webcast.php?courseKey=c4c532b4c64b372b" class="session-link">进入课堂</a>
             </div>
         </div>
     </div>
@@ -463,12 +480,10 @@
     <div class="modal" id="modal15">
         <div class="modal-content">
             <div class="card-title">HC03：课程思政</div>
-            <div class="card-subtitle">主持人: 孙渊</div>
+            <div class="card-subtitle">工作室主持人: 孙渊</div>
             <span class="close" onclick="closeModal('modal15')">&times;</span>
             <div class="session-links">
-                <a href="https://www.eeo.cn/webcast.php?courseKey=379d7d4f402d27cf" class="session-link">上午场</a>
-                <a href="https://www.eeo.cn/webcast.php?courseKey=379d7d4f402d27cf" class="session-link">中午场</a>
-                <a href="https://www.eeo.cn/webcast.php?courseKey=379d7d4f402d27cf" class="session-link">下午场</a>
+             <a href="https://www.eeo.cn/webcast.php?courseKey=379d7d4f402d27cf" class="session-link">进入课堂</a>
             </div>
         </div>
     </div>
