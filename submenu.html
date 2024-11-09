@@ -106,7 +106,7 @@
     </div>
 </div>
 
-<div class="" id="xiaoxue">
+<div class="submenu" id="xiaoxue">
     <h1 class="title">小学</h1>
 
     <div class="schedule">
@@ -138,7 +138,7 @@
 </div>
 
 </div>
-</div>  <div class="" id="chuzhong">
+</div>  <div class="submenu" id="chuzhong">
     <h1 class="title">初中</h1>
 
     <div class="schedule">
@@ -186,7 +186,7 @@
 
     </div>
 
-</div><div class="" id="gaozhong">
+</div><div class="submenu" id="gaozhong">
     <h1 class="title">高中（中职）</h1>
 
     <div class="schedule">
@@ -241,7 +241,7 @@
 
     </div>
 </div>
-<div class="" id="banzhuren">
+<div class="submenu" id="banzhuren">
     <h1 class="title">班主任</h1>
 
     <div class="schedule">
@@ -280,6 +280,37 @@
     ©2024 版权所有<br>
     技术支持：dongedu
 </div>
+
+<script>
+ 
+    document.addEventListener("DOMContentLoaded", function() {
+    function showContainerById(id) {
+        // Hide all containers
+        document.querySelectorAll('.submenu').forEach(function(container) {
+            container.style.display = 'none';
+        });
+        
+        // Show only the container with the specified ID
+        const targetContainer = document.getElementById(id);
+        if (targetContainer) {
+            targetContainer.style.display = 'block';
+        }
+    }
+    
+    // Check the URL hash and show the relevant container
+    if (window.location.hash) {
+        const hashId = window.location.hash.substring(1); // Remove the '#' symbol
+        showContainerById(hashId);
+    }
+
+    // Listen for hash changes in the URL to dynamically update the displayed content
+    window.addEventListener('hashchange', function() {
+        const hashId = window.location.hash.substring(1);
+        showContainerById(hashId);
+    });
+});
+
+</script>
 
 </body>
 </html>
